@@ -51,8 +51,7 @@ class FileProcessor:
         """Writes data from a list of dictionary rows to a file"""
         try:
             with open(file_name, "w") as file:
-                data = json.load(file)
-                student_data.extend(data)
+                json.dump(student_data, file, indent=4)
             print("The following data was saved to file!")
             IO.output_student_courses(student_data)
         except Exception as e:
@@ -78,7 +77,7 @@ class IO:
     @staticmethod
     def input_menu_choice():
         """Gets the menu choice from the user"""
-        return input("What would you like to do: ").strip()
+        return input("Enter Number Here: ").strip()
 
     @staticmethod
     def input_student_data(student_data: list):
